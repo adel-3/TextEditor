@@ -83,7 +83,23 @@ void turn_uppercase(fstream& file, string file_name){
 cout<<"---------------------------------------------------------------------------------------";
 
      }
+void turn_lowercase(fstream& file, string file_name){
+    file.open(file_name,ios::in );  string content, line;
+    while(getline(file, line)){
+         content+=line + "\n";
 
+        }
+        file.close();
+        tolowercase(content);
+        file.open(file_name, ios::out);
+        file<<content;
+        file.close();
+
+
+            cout<<"the file has changed to lowercase letter\n\n\n";
+cout<<"---------------------------------------------------------------------------------------";
+
+     }
 int main()
 {
 fstream filemodified; string file_name;
