@@ -5,14 +5,19 @@
 #include<string>
 using namespace std;
 void tolowercase(string& word ){
-for(int i=0;i<word.size();i++)
-    word[i]=tolower(word[i]);
+    for(int i=0;i<word.size();i++)
+        word[i]=tolower(word[i]);
 }
 void touppercase(string& word ){
-for(int i=0;i<word.size();i++)
-    word[i]=toupper(word[i]);
+    for(int i=0;i<word.size();i++)
+        word[i]=toupper(word[i]);
 }
-
+void tofirstupper(string& word , string& content){
+    string word2=word;
+    word2 = word.substr(1 , word.size());  tolowercase(word2);
+    word = toupper(word[0]);  word += word2;
+    content += word + " ";
+}
 void load_file(fstream& filemodified, string& file_name)
 {
     cout << "please enter the file name to deal with" << endl;
@@ -100,6 +105,27 @@ void turn_lowercase(fstream& file, string file_name){
 cout<<"---------------------------------------------------------------------------------------";
 
      }
+void turn_first_caps(fstream& file, string file_name){
+    file.open(file_name,ios::in );  string content, line,word;
+    while(getline(file, line) ){
+        istringstream iss;
+        iss.str(line);
+        while(iss.good()){
+            iss>>word;
+            tofirstupper(word, content);
+        }
+        content += "\n";
+        }
+        file.close();
+        file.open(file_name, ios::out);
+        file<<content;
+        file.close();
+
+
+            cout<<"the file has been updated after edit\n\n\n";
+cout<<"---------------------------------------------------------------------------------------";
+
+     }
 int main()
 {
 fstream filemodified; string file_name;
@@ -181,6 +207,7 @@ load_file(filemodified, file_name);
         }
         else if (operation == "14")
         {
+            turn_first_caps(filemodified, file_name);
 
         }
         else if (operation == "15")
