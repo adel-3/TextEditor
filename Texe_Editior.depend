@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1651696221 source:c:\users\abdelrahman-adel\desktop\c++ programs\texe_editior\texteditor\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+	<fstream>
+	<string>
+

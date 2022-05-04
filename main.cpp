@@ -4,12 +4,90 @@
 #include<fstream>
 #include<string>
 using namespace std;
-void count_word();
+void tolowercase(string& word ){
+for(int i=0;i<word.size();i++)
+    word[i]=tolower(word[i]);
+}
+void touppercase(string& word ){
+for(int i=0;i<word.size();i++)
+    word[i]=toupper(word[i]);
+}
+
+void load_file(fstream& filemodified, string& file_name)
+{
+    cout << "please enter the file name to deal with" << endl;
+    getline(cin, file_name);
+    //to check if the name of function ends by .txt or not.
+
+    if (file_name.size() < 4) {
+        file_name += ".txt";
+    }
+    else {
+        if (file_name.substr(file_name.size() - 4, file_name.size() - 1) != ".txt") {
+            file_name += ".txt";
+        }
+    }
+    //to test if the name of file exist or not.
+    filemodified.open(file_name);
+    //if the name of file doesn't exist then will create a file in the same folder of main and stored in filecreated.
+    if (filemodified.fail()) {
+
+        filemodified.open(file_name, ios::out);
+        filemodified.close();
+        cout << "This is a new file. I created it for you\n";
+    }
+    else {
+        //if the file name exists then will store it in filecreated
+        cout << "This File Already Exists\n";
+        filemodified.close();
+    }
+}
+//-----------------------------------------------------------------------------------------------------------------------------------
+void count_word_reptition(fstream& file, string file_name){
+
+file.open(file_name,ios::in);  int counter=0;   string line,wordsearch,word;
+                cout<<"Enter the word you want to count :";
+                cin>>wordsearch;  tolowercase(wordsearch);
+                //transform(wordsearch.begin(),wordsearch.end(),wordsearch.begin(),::tolower);
+     while(getline(file, line)){
+        istringstream iss;
+        iss.str(line);
+        while(iss.good()){
+            iss>>word; tolowercase(word);
+            //transform(word.begin(),word.end(),word.begin(),::tolower);
+            if (word == wordsearch){
+                counter ++;
+            }
+        }
+     }
+     file.close();
+            cout<<"The word "<<"\""<<wordsearch<<"\""<<" was found "<<counter<<" times in the file.\n\n\n";
+            cout<<"---------------------------------------------------------------------------------";
+
+}
+
+void turn_uppercase(fstream& file, string file_name){
+    file.open(file_name,ios::in );  string content, line;
+    while(getline(file, line)){
+         content+=line + "\n";
+
+        }
+        file.close();
+        touppercase(content);
+        file.open(file_name, ios::out);
+        file<<content;
+        file.close();
+
+
+            cout<<"the file has changed to uppercase letter\n\n\n";
+cout<<"---------------------------------------------------------------------------------------";
+
+     }
 
 int main()
 {
-
-
+fstream filemodified; string file_name;
+load_file(filemodified, file_name);
      string operation;
     cout << "Hello user!" << endl;
 
@@ -71,16 +149,18 @@ int main()
         }
         else if (operation == "11")
         {
-            count_word();
+
+            count_word_reptition(filemodified, file_name);
 
         }
         else if (operation == "12")
         {
-
+            turn_uppercase(filemodified, file_name);
 
         }
         else if (operation == "13")
         {
+            turn_lowercase(filemodified, file_name);
 
         }
         else if (operation == "14")
@@ -98,31 +178,5 @@ int main()
 
 
 }
-}
-
-void count_word(){
-int counter=0;
-    string date,word;
-    char name[100];
-    fstream datefile;
-    cout<<"enter the name of the text :";
-    cin>>name;
-     datefile.open(name);
-     while( datefile.fail()){
-        cout<<"can't open the file,please enter again"<<endl;
-        cin>>name;
-        datefile.open(name);
-     } if (!datefile.fail()) {
-                cout<<"file opened successfully"<<endl;
-                cout<<"Enter the word you want to count :";
-                cin>>word;
-                transform(word.begin(),word.end(),word.begin(),::tolower);
-     while(datefile>>date){
-        transform(date.begin(),date.end(),date.begin(),::tolower);
-        if (date==word)
-            counter+=1;}}
-            cout<<"The word "<<"\""<<word<<"\""<<" was found "<<counter<<" times in the file.\n\n\n";
-            cout<<"---------------------------------------------------------------------------------";
-     datefile.close();
 }
 
