@@ -3,134 +3,14 @@
 
 #include<fstream>
 #include<string>
+#include"texteditorheader.h"
 using namespace std;
-void tolowercase(string& word ){
-    for(int i=0;i<word.size();i++)
-        word[i]=tolower(word[i]);
-}
-void touppercase(string& word ){
-    for(int i=0;i<word.size();i++)
-        word[i]=toupper(word[i]);
-}
-void tofirstupper(string& word , string& content){
-    string word2=word;
-    word2 = word.substr(1 , word.size());  tolowercase(word2);
-    word = toupper(word[0]);  word += word2;
-    content += word + " ";
-}
-void load_file(fstream& filemodified, string& file_name)
-{
-    cout << "please enter the file name to deal with" << endl;
-    getline(cin, file_name);
-    //to check if the name of function ends by .txt or not.
 
-    if (file_name.size() < 4) {
-        file_name += ".txt";
-    }
-    else {
-        if (file_name.substr(file_name.size() - 4, file_name.size() - 1) != ".txt") {
-            file_name += ".txt";
-        }
-    }
-    //to test if the name of file exist or not.
-    filemodified.open(file_name);
-    //if the name of file doesn't exist then will create a file in the same folder of main and stored in filecreated.
-    if (filemodified.fail()) {
-
-        filemodified.open(file_name, ios::out);
-        filemodified.close();
-        cout << "This is a new file. I created it for you\n";
-    }
-    else {
-        //if the file name exists then will store it in filecreated
-        cout << "This File Already Exists\n";
-        filemodified.close();
-    }
-}
-//-----------------------------------------------------------------------------------------------------------------------------------
-void count_word_reptition(fstream& file, string file_name){
-
-file.open(file_name,ios::in);  int counter=0;   string line,wordsearch,word;
-                cout<<"Enter the word you want to count :";
-                cin>>wordsearch;  tolowercase(wordsearch);
-                //transform(wordsearch.begin(),wordsearch.end(),wordsearch.begin(),::tolower);
-     while(getline(file, line)){
-        istringstream iss;
-        iss.str(line);
-        while(iss.good()){
-            iss>>word; tolowercase(word);
-            //transform(word.begin(),word.end(),word.begin(),::tolower);
-            if (word == wordsearch){
-                counter ++;
-            }
-        }
-     }
-     file.close();
-            cout<<"The word "<<"\""<<wordsearch<<"\""<<" was found "<<counter<<" times in the file.\n\n\n";
-            cout<<"---------------------------------------------------------------------------------";
-
-}
-
-void turn_uppercase(fstream& file, string file_name){
-    file.open(file_name,ios::in );  string content, line;
-    while(getline(file, line)){
-         content+=line + "\n";
-
-        }
-        file.close();
-        touppercase(content);
-        file.open(file_name, ios::out);
-        file<<content;
-        file.close();
-
-
-            cout<<"the file has changed to uppercase letter\n\n\n";
-cout<<"---------------------------------------------------------------------------------------";
-
-     }
-void turn_lowercase(fstream& file, string file_name){
-    file.open(file_name,ios::in );  string content, line;
-    while(getline(file, line)){
-         content+=line + "\n";
-
-        }
-        file.close();
-        tolowercase(content);
-        file.open(file_name, ios::out);
-        file<<content;
-        file.close();
-
-
-            cout<<"the file has changed to lowercase letter\n\n\n";
-cout<<"---------------------------------------------------------------------------------------";
-
-     }
-void turn_first_caps(fstream& file, string file_name){
-    file.open(file_name,ios::in );  string content, line,word;
-    while(getline(file, line) ){
-        istringstream iss;
-        iss.str(line);
-        while(iss.good()){
-            iss>>word;
-            tofirstupper(word, content);
-        }
-        content += "\n";
-        }
-        file.close();
-        file.open(file_name, ios::out);
-        file<<content;
-        file.close();
-
-
-            cout<<"the file has been updated after edit\n\n\n";
-cout<<"---------------------------------------------------------------------------------------";
-
-     }
 int main()
 {
 fstream filemodified; string file_name;
 load_file(filemodified, file_name);
-     string operation;
+     int operation;
     cout << "Hello user!" << endl;
 
     while (true)
@@ -145,77 +25,79 @@ load_file(filemodified, file_name);
         cout << "9- Count the number of lines in the file\n" << "10- Search for a word in the file\n" ;
         cout << "11- Count the number of times a word exists in the file\n" << "12- Turn the file content to upper case.\n";
         cout << "13- Turn the file content to lower case.\n"<<"14- Turn file content to 1st caps (1st char of each word is capital)\n";
-        cout <<"15- Save\n"<< "0- Exit" << endl;
+        cout <<"15- Save\n"<< "16- Exit" << endl;
         cout << "Please select the number of edition you want to apply or 16 to exit : " ;
         // To choose which edition will be applied
         cin >> operation;
-        if (operation == "1")
+        if (operation == 1)
         {
 
         }
-        if (operation == "2")
+        if (operation == 2)
         {
 
         }
-        else if (operation == "3")
+        else if (operation == 3)
         {
 
 
         }
-        else if (operation == "4")
+        else if (operation == 4)
         {
 
         }
-        else if (operation == "5")
+        else if (operation == 5)
         {
 
         }
-        else if (operation == "6")
+        else if (operation == 6)
         {
 
         }
-        else if (operation == "7")
+        else if (operation == 7)
         {
 
         }
-        else if (operation == "8"){
+        else if (operation == 8){
 
             }
-        else if (operation == "9")
+        else if (operation == 9)
         {
 
         }
-        else if (operation == "10")
+        else if (operation == 10)
         {
 
         }
-        else if (operation == "11")
+        else if (operation == 11)
         {
 
             count_word_reptition(filemodified, file_name);
 
         }
-        else if (operation == "12")
+        else if (operation == 12)
         {
             turn_uppercase(filemodified, file_name);
 
         }
-        else if (operation == "13")
+        else if (operation == 13)
         {
             turn_lowercase(filemodified, file_name);
 
         }
-        else if (operation == "14")
+        else if (operation == 14)
         {
             turn_first_caps(filemodified, file_name);
 
         }
-        else if (operation == "15")
+        else if (operation == 15)
         {
+            save(filemodified,filemodified, file_name);
 
         }
-        else if (operation == "0")
+        else if (operation == 16)
         {
+            cout<<"thanks for using our app :)";
             break;
         }
 
