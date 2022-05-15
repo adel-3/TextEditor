@@ -7,7 +7,11 @@
 #include<fstream>
 #include<string>
 using namespace std;
-
+void add_newtext();
+void Display_the_content();
+void Empty_file();
+void Encrypt_file_content ();    
+void decryptfile ();
 void tolowercase(string& word );
 void touppercase(string& word );
 void tofirstupper(string& word , string& content);
