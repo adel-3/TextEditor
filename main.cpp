@@ -50,24 +50,24 @@ load_file(filemodified, file_name);
         {
                decryptfile ();
         }
-        else if (operation == 6)
+       else if (operation == "6")
         {
-
+            mergefiles();
         }
-        else if (operation == 7)
+        else if (operation == "7")
         {
-
+            num_word();
         }
-        else if (operation == 8){
-
+        else if (operation == "8"){
+            countchar();
             }
-        else if (operation == 9)
+        else if (operation == "9")
         {
-
+            countline();
         }
-        else if (operation == 10)
+        else if (operation == "10")
         {
-
+             find_word();
         }
         else if (operation == 11)
         {
