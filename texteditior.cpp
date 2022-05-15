@@ -7,9 +7,10 @@
 using namespace std;
  string sourcedata, line;
 
-void add_newtext()
+
+ void add_newtext()
 {
-    
+
    cout<<"enter name of file :";
      string name;
      cin>>name;
@@ -24,7 +25,7 @@ void add_newtext()
 }
  void Display_the_content()
 {
-    
+
    char fname[100];
      char line[100];
      cout<<"Enter filename: ";
@@ -32,7 +33,7 @@ void add_newtext()
      ifstream fin;
      fin.open(fname,ios::in);
      if(!fin){
-         
+
          cout<<"file does not exist\n";
      }
      else
@@ -43,9 +44,9 @@ void add_newtext()
              cout<<line<<"\n";
          }
      }
-     
-     fin.close(); 
-    
+
+     fin.close();
+
 
 }
 
@@ -58,7 +59,7 @@ void Empty_file()
     myfile.open(name,ios::trunc);
     myfile<<" ";
     myfile.close();
-    
+
 }
 
 void Encrypt_file_content ()
@@ -104,6 +105,8 @@ void decryptfile ()
     }
     outFile.close();
 }
+
+
 
 
 
