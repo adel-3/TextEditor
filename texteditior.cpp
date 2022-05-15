@@ -105,10 +105,106 @@ void decryptfile ()
     }
     outFile.close();
 }
+void mergefiles(){
+ifstream datafile;
+ofstream targetfile;
+char name[81];
+char token [101];
+
+cout<<"pls enter file name: ";
+cin>>name;
+datafile.open(name);
+targetfile.open("target.txt");
+if (datafile.fail()){
+
+    cout<<"sorry , there is no file";
+
+}
+else{
+    cout<<("opened successfully");
+}
+while(!datafile.eof()){
+    datafile.getline(token, 100,'/n');
+    targetfile<< token<<endl;
+
+}
+datafile.close();
+targetfile.close();
 
 
 
+      } 
+void num_word(){
 
+
+
+	ifstream fin;
+	fin.open("files.txt");
+	char word[101];
+	int counter=0;
+	while(!fin.eof())
+	{
+		fin>>word;
+		counter++;
+	}
+	cout<<"Number of words in file are "<<counter-1;
+	fin.close();
+
+
+}
+
+void countchar(){
+
+     fstream datefile("files.txt");
+     char ch;
+     int c = 0;
+     while(!datefile.eof()){
+        ch = datefile.get();
+        c += 1;
+     }
+     cout<<"number of character is : "<<c<<endl<<endl;
+
+ }
+
+void countline(){
+	int counter = 0;
+    string line;
+
+    /* Creating input filestream */
+    ifstream file("files.txt");
+    while (getline(file, line))
+       {
+          counter++;
+       }
+
+    cout << "Numbers of lines in the file : " << counter << endl;
+}
+
+
+void find_word(){
+            string word;
+            ifstream datefile ("date.txt");
+            string a;
+            cout<<"enter word \n";
+            cin>>word;
+            bool ans=false;
+            if (datefile.is_open())
+  {
+    while ( getline (datefile,a) )
+    {
+      if (a.find(word, 0) != string::npos) {
+          cout<<"Yes word is find :)\n \n";
+          ans=true;
+    }
+    }
+    datefile.close();
+  }
+  else
+  cout << "Unable to open file";
+
+  if(!ans)
+  cout<<" Sorry word not find :( "<<endl;
+       }
 
 
 
