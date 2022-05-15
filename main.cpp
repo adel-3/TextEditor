@@ -31,24 +31,24 @@ load_file(filemodified, file_name);
         cin >> operation;
         if (operation == 1)
         {
-
+           void add_newtext();
         }
         if (operation == 2)
         {
-
+             Display_the_content();
         }
         else if (operation == 3)
         {
-
+                Empty_file();
 
         }
         else if (operation == 4)
         {
-
+             Encrypt_file_content ();
         }
         else if (operation == 5)
         {
-
+               decryptfile ();
         }
         else if (operation == 6)
         {
