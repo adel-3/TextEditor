@@ -21,6 +21,9 @@ void turn_uppercase(fstream& file, string file_name);
 void turn_lowercase(fstream& file, string file_name);
 void turn_first_caps(fstream& file, string file_name);
 void save(fstream& file,fstream& filemodified ,string file_name);
-
-
+void mergefiles(); 
+void num_word();
+void countchar();
+void countline();  
+void find_word();
 #endif // TEXTEDITORHEADER_H_INCLUDED
