@@ -7,6 +7,108 @@
 using namespace std;
  string sourcedata, line;
 
+void add_newtext()
+{
+    
+   cout<<"enter name of file :";
+     string name;
+     cin>>name;
+    string text;
+    cout<<"Add new text : "<<endl;
+    cin.ignore();
+    getline(cin, text);
+    ofstream myfile; // write
+    myfile.open(name,ios::app);
+    myfile<<text<<endl;
+    myfile.close();
+}
+ void Display_the_content()
+{
+    
+   char fname[100];
+     char line[100];
+     cout<<"Enter filename: ";
+     cin>>fname;
+     ifstream fin;
+     fin.open(fname,ios::in);
+     if(!fin){
+         
+         cout<<"file does not exist\n";
+     }
+     else
+     {
+         cout<<"contents of"<<fname<<"file..\n";
+         while(fin.eof()==0){
+             fin.getline(line,sizeof(line));
+             cout<<line<<"\n";
+         }
+     }
+     
+     fin.close(); 
+    
+
+}
+
+void Empty_file()
+{
+    cout<<"enter name of file :";
+     string name;
+     cin>>name;
+    ofstream myfile; // write
+    myfile.open(name,ios::trunc);
+    myfile<<" ";
+    myfile.close();
+    
+}
+
+void Encrypt_file_content ()
+{
+
+    char c;
+    string myFile;
+    ifstream inputFile;
+    cout << "please enter file name: ";
+    cin >> myFile;
+    inputFile.open(myFile.c_str(), ios::binary);
+    ofstream outFile;
+    inputFile.get(c);
+    outFile.open(myFile.c_str(), ios::binary);
+    while (inputFile)
+    {
+        int temp = (c + 1);
+        char ch = char(temp);
+        outFile << ch;
+        inputFile.get(c);
+    }
+    outFile.close();
+}
+
+void decryptfile ()
+{
+
+    char b;
+    string myFile;
+    ifstream inputFile;
+    cout << "please enter file name: ";
+    cin >> myFile;
+    inputFile.open(myFile.c_str(), ios::binary);
+    ofstream outFile;
+    inputFile.get(b);
+    outFile.open(myFile.c_str(), ios::binary);
+    while (inputFile)
+    {
+        int temp = (b - 1);
+        char ch = char(temp);
+        outFile << ch;
+        inputFile.get(b);
+    }
+    outFile.close();
+}
+
+
+
+
+
 void tolowercase(string& word ){
     for(int i=0;i<word.size();i++)
         word[i]=tolower(word[i]);
