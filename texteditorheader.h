@@ -7,16 +7,16 @@
 #include<fstream>
 #include<string>
 using namespace std;
-void add_newtext();
-void Display_the_content();
-void Empty_file();
-void Encrypt_file_content ();    
-void decryptfile (); 
-void mergefiles(); 
-void num_word();
-void countchar();
-void countline();  
-void find_word();
+void add_newtext(fstream& file, string file_name);
+void Display_the_content(fstream& file, string file_name);
+void Empty_file(fstream& file, string file_name);
+void Encrypt_file_content (fstream& file, string file_name);
+void decryptfile (fstream& file, string file_name);
+void mergefiles(fstream& file, string file_name);
+void num_word(fstream& file, string file_name);
+void countchar(fstream& file, string file_name);
+void countline(fstream& file, string file_name);
+void find_word(fstream& file, string file_name);
 void tolowercase(string& word );
 void touppercase(string& word );
 void tofirstupper(string& word , string& content);

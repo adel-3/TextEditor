@@ -31,43 +31,43 @@ load_file(filemodified, file_name);
         cin >> operation;
         if (operation == 1)
         {
-           void add_newtext();
+            add_newtext(filemodified, file_name);
         }
         if (operation == 2)
         {
-             Display_the_content();
+             Display_the_content(filemodified, file_name);
         }
         else if (operation == 3)
         {
-                Empty_file();
+            Empty_file(filemodified, file_name);
 
         }
         else if (operation == 4)
         {
-             Encrypt_file_content ();
+             Encrypt_file_content (filemodified, file_name);
         }
         else if (operation == 5)
         {
-               decryptfile ();
+               decryptfile (filemodified, file_name);
         }
-       else if (operation == "6")
+       else if (operation == 6)
         {
-            mergefiles();
+            mergefiles(filemodified, file_name);
         }
-        else if (operation == "7")
+        else if (operation == 7)
         {
-            num_word();
+            num_word(filemodified, file_name);
         }
-        else if (operation == "8"){
-            countchar();
+        else if (operation == 8){
+            countchar(filemodified, file_name);
             }
-        else if (operation == "9")
+        else if (operation == 9)
         {
-            countline();
+            countline(filemodified, file_name);
         }
-        else if (operation == "10")
+        else if (operation == 10)
         {
-             find_word();
+             find_word(filemodified, file_name);
         }
         else if (operation == 11)
         {
