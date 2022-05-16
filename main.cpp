@@ -35,12 +35,21 @@ load_file(filemodified, file_name);
         }
         if (operation == 2)
         {
+<<<<<<< HEAD
              Display_the_content(filemodified, file_name);
         }
         else if (operation == 3)
         {
             Empty_file(filemodified, file_name);
 
+=======
+           Display_the_content();
+        }
+        else if (operation == 3)
+        {
+               
+           Empty_file();
+>>>>>>> dce765a72a27c0e5c31b6dc71bc8a7e42ff6aaf7
         }
         else if (operation == 4)
         {
@@ -48,7 +57,11 @@ load_file(filemodified, file_name);
         }
         else if (operation == 5)
         {
+<<<<<<< HEAD
                decryptfile (filemodified, file_name);
+=======
+             decryptfile ();  
+>>>>>>> dce765a72a27c0e5c31b6dc71bc8a7e42ff6aaf7
         }
        else if (operation == 6)
         {
