@@ -48,7 +48,7 @@ load_file(filemodified, file_name);
         }
         else if (operation == 5)
         {
-               decryptfile ();
+             decryptfile ();  
         }
        else if (operation == "6")
         {
