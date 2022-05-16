@@ -1,3 +1,11 @@
+// FCAI – Programming 1 – 2022 - Assignment 4
+// Program Name: texteditior.cpp
+// Last Modification Date: 16/5/2022
+// Author1 and ID and Group: abdelrahman adel   20211059  group A
+// Author2 and ID and Group: salma ramadan mohamed omar   20211047   group A
+// Author3 and ID and Group: alaa azizi abdelhamid   20210071  group A
+// Teaching Assistant: nesma/yousra
+// Purpose:edit on text
 #include<iostream>
 #include<bits/stdc++.h>
 
