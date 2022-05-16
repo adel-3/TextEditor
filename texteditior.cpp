@@ -8,7 +8,7 @@ using namespace std;
  string sourcedata, line;
 
 
- void add_newtext()
+void add_newtext()
 {
 
    cout<<"enter name of file :";
