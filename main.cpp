@@ -49,9 +49,6 @@ load_file(filemodified, file_name);
         else if (operation == 3)
         {
             Empty_file(filemodified, file_name);
-
-
-           Display_the_content();
         }
         else if (operation == 3)
         {
@@ -68,7 +65,6 @@ load_file(filemodified, file_name);
 
                decryptfile (filemodified, file_name);
 
-             decryptfile ();
 
         }
        else if (operation == 6)
