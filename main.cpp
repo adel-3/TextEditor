@@ -35,12 +35,12 @@ load_file(filemodified, file_name);
         }
         if (operation == 2)
         {
-             Display_the_content();
+           Display_the_content();
         }
         else if (operation == 3)
         {
-                Empty_file();
-
+               
+           Empty_file();
         }
         else if (operation == 4)
         {
